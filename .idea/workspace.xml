@@ -12,18 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1121836d-3e28-49e8-abc8-9cd458a40f23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/Dices.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/Game.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/save1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/Dices.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/Game.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/User.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/print.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/utility.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/utility.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dices.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dices" beforeDir="false" afterPath="$PROJECT_DIR$/Dices" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Dices.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Dices.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/Dices.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Dices.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/print.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/print.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +39,16 @@
       <set>
         <option value="$PROJECT_DIR$/.idea" />
       </set>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/KEK.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
     </option>
   </component>
   <component name="ProjectId" id="1SpuWOpGMKGhaeW3Gr3qa3BU8ug" />
@@ -88,6 +94,7 @@
       <updated>1572272888191</updated>
       <workItem from="1572272889795" duration="166000" />
       <workItem from="1572273056798" duration="40466000" />
+      <workItem from="1572349314659" duration="974000" />
     </task>
     <servers />
   </component>

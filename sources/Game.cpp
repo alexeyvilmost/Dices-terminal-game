@@ -96,7 +96,7 @@ int Game::turn()
 		std::string	clr = win ? green : red;
 		std::cout << cm("You ", clr);
 		std::cout << (win ? cm("win", clr) : cm("loss", clr));
-		std::cout << cm("the game with " + std::to_string(user.points) + "\n", clr);
+		std::cout << cm(" the game with " + std::to_string(user.points) + "\n", clr);
 		return 0;
 	}
 

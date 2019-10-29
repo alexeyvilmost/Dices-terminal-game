@@ -20,7 +20,7 @@ Dices::Dices(Dices const &other)
 	this->in = countSeparator(dices_, range_, separator);
 }
 
-std::vector<int>	Dices::Throw(int prediction) const
+std::vector<int>	Dices::Throw(int prediction, bool color) const
 {
 	srand(time(nullptr));
 	std::vector<int>	result(dices_);
@@ -33,7 +33,7 @@ std::vector<int>	Dices::Throw(int prediction) const
 
 			PrintDice(result);
 			PrintInfo(prediction,
-					Sum(result, (k != 49) ? last : last + 1));
+					Sum(result, (k != 49) ? last : last + 1), color);
 
 			if (last == dices_ - 1 && k == 49)
 				break;
@@ -43,7 +43,7 @@ std::vector<int>	Dices::Throw(int prediction) const
 	return result;
 }
 
-std::vector<int> Dices::ThrowSkip(int prediction) const
+std::vector<int> Dices::ThrowSkip(int prediction, bool color) const
 {
 	srand(time(nullptr));
 	std::vector<int>	result(dices_);
@@ -51,7 +51,7 @@ std::vector<int> Dices::ThrowSkip(int prediction) const
 	for (auto &item : result)
 		item = (rand() % range_) + 1;
 	PrintDice(result);
-	PrintInfo(prediction, Sum(result));
+	PrintInfo(prediction, Sum(result), color);
 	return result;
 }
 
@@ -68,9 +68,9 @@ int Dices::calculate(int prediction, int total) const
 	return -1;
 }
 
-int	Dices::Match(int prediction, bool skip)
+int	Dices::Match(int prediction, bool skip, bool color)
 {
-	auto result = (skip) ? ThrowSkip(prediction) : Throw(prediction);
+	auto result = (skip) ? ThrowSkip(prediction, color) : Throw(prediction, color);
 	history_.push_back({prediction, result});
 	return calculate(prediction, Sum(result));
 }

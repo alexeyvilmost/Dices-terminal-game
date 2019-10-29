@@ -81,7 +81,8 @@ Dices	DicesMenu(std::istream& in)
 			system("clear");
 			if (is(d_argument > 0 && d_argument < 8))
 			{
-				std::cout << "Amount of dices changed from " << custom.amount() << " to " << d_argument << std::endl;
+				std::cout << "Amount of dices changed from " << custom.amount() 
+				<< " to " << d_argument << std::endl;
 				custom.ChangeAmount(d_argument);
 			}
 			usleep(1000000);
@@ -92,7 +93,8 @@ Dices	DicesMenu(std::istream& in)
 			system("clear");
 			if (is(d_argument > 0 && d_argument < 21))
 			{
-				std::cout << "Range of dices changed from " << custom.range() << " to " << d_argument << std::endl;
+				std::cout << "Range of dices changed from " << custom.range() 
+				<< " to " << d_argument << std::endl;
 				custom.ChangeRange(d_argument);
 			}
 			usleep(1000000);
@@ -130,17 +132,20 @@ void	PointsMenu(User &user, std::istream& in)
 				user.points = argument;
 			}
 			usleep(1000000);
-		} else if (command == "WIN")
+		}
+		else if (command == "WIN")
 		{
 			in >> argument;
 			system("clear");
 			if (is(argument > user.points && argument < 10001));
 			{
-				std::cout << "Win points changed from " << user.win_condition << " to " << argument << std::endl;
+				std::cout << "Win points changed from " << user.win_condition 
+				<< " to " << argument << std::endl;
 				user.win_condition = argument;
 			}
 			usleep(1000000);
-		} else
+		} 
+		else
 		{
 			system("clear");
 			std::cout << "UNKNOWN COMMAND: " << std::endl;
@@ -192,10 +197,13 @@ void	SaveInter(std::ofstream& out, User &user, bool skip, bool color)
 	if (user.points != 100 || user.win_condition != 500)
 	{
 		out << "POINTS ";
-		if (user.points != 100)
+		if (user.win_condition <= 100)
 			out << "START " << user.points << " ";
-		if (user.win_condition != 500)
-			out << "WIN " << user.win_condition << " ";
+		
+		out << "WIN " << user.win_condition << " ";
+		
+		if (user.win_condition > 100)
+			out << "START" << user.points << " ";
 		out << "EXIT ";
 	}
 	if (skip || !color)
@@ -225,7 +233,7 @@ void	CustomGame(User &user, std::istream& in)
 		std::cout << blue "DICES" endc " if you want to change dices settings\n";
 		std::cout << blue "POINTS" endc " if you want to change start points or win condition\n";
 		std::cout << blue "ADVANCE" endc " if you want to disable advance settings\n";
-		std::cout << blue "SAVE filename" endc "to save this changes to file\n";
+		std::cout << blue "SAVE filename" endc " to save this changes to file\n";
 		std::cout << blue "START" endc " to start the game with selected settings\n";
 		in >> command;
 		if (command == "START")

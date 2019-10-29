@@ -26,23 +26,41 @@ static void	PrintLine(std::ostream& out, int result, int line)
 	}
 }
 
-void Dices::PrintInfo(int prediction, int sum) const
+void Dices::PrintInfo(int prediction, int sum, bool color) const
 {
+	bool	istrue = false;
 	std::cout << "Needed to be ";
 	if (in && prediction <= separator)
+	{
 		std::cout << "less or equal to ";
+		istrue = sum <= separator;
+	}
 	else if (!in && prediction < separator)
+	{
 		std::cout << "less then ";
+		istrue = sum < separator;
+	}
 	else
+	{
 		std::cout << "more then ";
+		istrue = sum > separator;
+	}
 	std::cout << separator << " to take your bet back" << std::endl;
-	std::cout << "CURRENT SUM NOW = " << sum << std::endl;
+	if (!color)
+		std::cout << "CURRENT SUM NOW = " << sum << std::endl;
+	else
+	{
+		std::cout << "CURRENT SUM NOW = ";
+		if (istrue)
+			std::cout << green << sum << endc << std::endl;
+		else
+			std::cout << red << sum << endc << std::endl;
+	}
 	std::cout << "YOUR PREDICTION = " << prediction << std::endl;
 }
 
 void 	Dices::PrintDice(std::vector<int> const &results) const
 {
-//	std::cout << black;
 	if (this->range() < 10)
 		for (int i = 1; i <= 5; i++)
 		{
@@ -56,5 +74,4 @@ void 	Dices::PrintDice(std::vector<int> const &results) const
 			std::cout << "[" << std::setw(2) << item << "] ";
 		std::cout << std::endl;
 	}
-//	std::cout << endc;
 }
