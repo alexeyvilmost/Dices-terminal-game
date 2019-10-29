@@ -1,0 +1,3 @@
+/home/alexeyvilmost/Projects/University/Dices/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/alexeyvilmost/Projects/University/Dices/cmake-build-debug/CMakeFiles/KEK.dir
+/home/alexeyvilmost/Projects/University/Dices/cmake-build-debug/CMakeFiles/edit_cache.dir

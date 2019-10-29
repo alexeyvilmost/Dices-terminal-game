@@ -1,0 +1,5 @@
+  Turn score   bet  pred result
+     1   100    30     6  7: 1-6  loss 30 points
+     2    70    40     6  6: 3-3  win 120 points
+     3   190    90     6  7: 4-3  loss 90 points
+     4   100   100     6 10: 5-5  loss 100 points
