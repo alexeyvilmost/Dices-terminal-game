@@ -17,7 +17,7 @@ void	Game::TurnStart(int &bet, int &prediction)
 	if (prediction < from || prediction > to)
 		return TurnStart(bet, prediction);
 
-	std::cout << "Enter your bet for prediction " << prediction << " ";
+	std::cout << "Enter your bet for prediction (1-" << user.points << "): ";
 	std::cin >> bet;
 
 	if (bet < 0 || bet > user.points)

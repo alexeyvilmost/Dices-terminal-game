@@ -1,3 +1,0 @@
-  Turn Score   Bet  Pred Result
-     1   100    50     6  7: 6-1  loss 50 points
-     2    50    50     6  7: 1-6  loss 50 points

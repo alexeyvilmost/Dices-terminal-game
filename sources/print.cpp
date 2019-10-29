@@ -42,7 +42,7 @@ void Dices::PrintInfo(int prediction, int sum) const
 
 void 	Dices::PrintDice(std::vector<int> const &results) const
 {
-	std::cout << black;
+//	std::cout << black;
 	if (this->range() < 10)
 		for (int i = 1; i <= 5; i++)
 		{
@@ -56,5 +56,5 @@ void 	Dices::PrintDice(std::vector<int> const &results) const
 			std::cout << "[" << std::setw(2) << item << "] ";
 		std::cout << std::endl;
 	}
-	std::cout << endc;
+//	std::cout << endc;
 }
