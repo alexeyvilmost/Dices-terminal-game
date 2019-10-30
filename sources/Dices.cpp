@@ -29,7 +29,9 @@ std::vector<int>	Dices::Throw(int prediction, bool color) const
 		for (int k = 0; k < 50; k++)
 		{
 			for (int flex = last; flex < dices_; flex++)
+			{
 				result[flex] = (rand() % range_) + 1;
+			}
 
 			PrintDice(result);
 			PrintInfo(prediction,

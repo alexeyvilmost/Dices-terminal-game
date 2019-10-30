@@ -28,8 +28,10 @@ static void	PrintLine(std::ostream& out, int result, int line)
 
 void Dices::PrintInfo(int prediction, int sum, bool color) const
 {
-	bool	istrue = false;
+	int	istrue = calculate(prediction, sum);
 	std::cout << "Needed to be ";
+	if (istrue == -1) 	std::cout << red;
+	else				std::cout << green;
 	if (in && prediction <= separator)
 	{
 		std::cout << "less or equal to ";
@@ -45,13 +47,14 @@ void Dices::PrintInfo(int prediction, int sum, bool color) const
 		std::cout << "more then ";
 		istrue = sum > separator;
 	}
+	std::cout << endc;
 	std::cout << separator << " to take your bet back" << std::endl;
 	if (!color)
 		std::cout << "CURRENT SUM NOW = " << sum << std::endl;
 	else
 	{
 		std::cout << "CURRENT SUM NOW = ";
-		if (istrue)
+		if (prediction >= sum)
 			std::cout << green << sum << endc << std::endl;
 		else
 			std::cout << red << sum << endc << std::endl;
