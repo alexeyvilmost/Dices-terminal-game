@@ -203,7 +203,7 @@ void	SaveInter(std::ofstream& out, User &user, bool skip, bool color)
 		out << "WIN " << user.win_condition << " ";
 		
 		if (user.win_condition > 100)
-			out << "START" << user.points << " ";
+			out << "START " << user.points << " ";
 		out << "EXIT ";
 	}
 	if (skip || !color)
