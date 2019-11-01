@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1121836d-3e28-49e8-abc8-9cd458a40f23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Dices" beforeDir="false" afterPath="$PROJECT_DIR$/Dices" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +45,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/CLionProjects/Quad" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Quad" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -79,6 +79,7 @@
       <workItem from="1572272889795" duration="166000" />
       <workItem from="1572273056798" duration="40466000" />
       <workItem from="1572349314659" duration="974000" />
+      <workItem from="1572635102096" duration="147000" />
     </task>
     <servers />
   </component>
