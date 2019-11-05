@@ -1,6 +1,7 @@
 NAME = Dices
 
-SRC = utility.cpp print.cpp Dices.cpp User.cpp Game.cpp main.cpp
+SRC = utility.cpp print.cpp Dices.cpp User.cpp Game.cpp main.cpp \
+      GameStarters.cpp Settings.cpp
 
 CLSO = $(CLS:.cpp=.o)
 

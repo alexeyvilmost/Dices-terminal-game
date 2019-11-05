@@ -4,7 +4,7 @@
 
 #include <unistd.h>
 #include "../includes/Dices.h"
-#include "utility.h"
+#include "../includes/utility.h"
 
 Dices::Dices(int range, int dices) :
 				range_(range), dices_(dices), separator(0)
@@ -24,6 +24,7 @@ std::vector<int>	Dices::Throw(int prediction, bool color) const
 {
 	srand(time(nullptr));
 	std::vector<int>	result(dices_);
+	int sum = 0;
 
 	for (int last = 0; last < dices_; last++)
 		for (int k = 0; k < 50; k++)
@@ -32,15 +33,15 @@ std::vector<int>	Dices::Throw(int prediction, bool color) const
 			{
 				result[flex] = (rand() % range_) + 1;
 			}
-
+			if (k == 49)
+				sum += result[last];
 			PrintDice(result);
-			PrintInfo(prediction,
-					Sum(result, (k != 49) ? last : last + 1), color);
+			PrintInfo(prediction, sum, color);
 
 			if (last == dices_ - 1 && k == 49)
 				break;
 			usleep(50000);
-			system("clear");
+			clear;
 		}
 	return result;
 }
@@ -59,14 +60,10 @@ std::vector<int> Dices::ThrowSkip(int prediction, bool color) const
 
 int Dices::calculate(int prediction, int total) const
 {
-	if (prediction == total)
-		return 1;
-	if (prediction > separator && total > separator)
-		return 0;
-	if (in && prediction <= separator && total <= separator)
-		return 0;
-	if (!in && prediction < separator && total < separator)
-		return 0;
+	if (prediction == total) 									return 1;
+	if (prediction > separator && total > separator)			return 0;
+	if (in && prediction <= separator && total <= separator)	return 0;
+	if (!in && prediction < separator && total < separator)		return 0;
 	return -1;
 }
 

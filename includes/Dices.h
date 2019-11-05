@@ -1,9 +1,4 @@
-//
-// Created by alexeyvilmost on 28.10.2019.
-//
-
-#ifndef DICES_H
-#define DICES_H
+#pragma once
 
 #include <vector>
 #include <utility>
@@ -41,6 +36,3 @@ private:
 		int			dices_;
 		results		history_;
 };
-
-
-#endif

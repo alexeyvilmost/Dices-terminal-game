@@ -1,6 +1,6 @@
 #include <iomanip>
 #include "../includes/Dices.h"
-#include "utility.h"
+#include "../includes/utility.h"
 
 char		dot(bool condition) { return (condition) ? '0' : ' '; }
 
@@ -10,8 +10,6 @@ static void	PrintLine(std::ostream& out, int result, int line)
 {
 	switch (line)
 	{
-		case 1:
-			out << " ------- " << h; break;
 		case 2:
 			out << "| " << dot(result > 3) << " " << dot(result >= 6) << " "
 			<< dot(result != 1) << " |" << h; break;
@@ -28,26 +26,20 @@ static void	PrintLine(std::ostream& out, int result, int line)
 
 void Dices::PrintInfo(int prediction, int sum, bool color) const
 {
-	int	istrue = calculate(prediction, sum);
 	std::cout << "Needed to be ";
-	if (istrue == -1) 	std::cout << red;
-	else				std::cout << green;
+
+	if (color)
+		std::cout << ((calculate(prediction, sum) == -1) ? red : green);
 	if (in && prediction <= separator)
-	{
 		std::cout << "less or equal to ";
-		istrue = sum <= separator;
-	}
 	else if (!in && prediction < separator)
-	{
 		std::cout << "less then ";
-		istrue = sum < separator;
-	}
-	else
-	{
+	else if (prediction > separator)
 		std::cout << "more then ";
-		istrue = sum > separator;
-	}
-	std::cout << endc;
+	else
+		std::cout << "no-value";
+	if (color)
+		std::cout << endc;
 	std::cout << separator << " to take your bet back" << std::endl;
 	if (!color)
 		std::cout << "CURRENT SUM NOW = " << sum << std::endl;

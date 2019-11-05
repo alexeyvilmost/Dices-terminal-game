@@ -1,14 +1,9 @@
-//
-// Created by alexeyvilmost on 28.10.2019.
-//
-
-#ifndef KEK_GAME_H
-#define KEK_GAME_H
+#pragma once
 
 #include <utility>
 
 #include "../sources/User.cpp"
-#include "../sources/utility.h"
+#include "utility.h"
 
 class Game
 {
@@ -29,6 +24,3 @@ private:
 	bool					skip;
 	std::vector<turn_data>	history_;
 };
-
-
-#endif //KEK_GAME_H
