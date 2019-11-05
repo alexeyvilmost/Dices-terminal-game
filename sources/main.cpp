@@ -27,7 +27,7 @@ string	Intro()
 
 int			main(void)
 {
-	string 	command = Intro();
+	string 			command = Intro();
 	User			user;
 
 	if (command == "QUICK")
@@ -36,7 +36,7 @@ int			main(void)
 		QuickGame(Game(user));
 	}
 	if (command == "CUSTOM")
-		CustomGame(user, cin);
+		CustomGame(user);
 	else if (command == "FILE")
 	{
 		string	file;

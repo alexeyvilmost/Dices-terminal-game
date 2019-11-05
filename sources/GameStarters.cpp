@@ -50,9 +50,7 @@ void	CustomGame(User &user, std::istream& in)
 		if (command == "START")
 			break;
 		if (command == "DICES")
-		{
 			user.dices = DicesMenu(in);
-		}
 		if (command == "POINTS")
 			PointsMenu(user, in);
 		if (command == "ADVANCE")

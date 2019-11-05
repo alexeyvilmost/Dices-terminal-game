@@ -1,7 +1,6 @@
 #include <unistd.h>
 #include <iomanip>
 #include "../includes/Game.h"
-#include "../includes/utility.h"
 
 using std::cin;
 using std::cout;
@@ -24,6 +23,7 @@ void	Game::TurnStart(int &bet, int &prediction)
 	if (prediction < from || prediction > to)
 		return TurnStart(bet, prediction);
 
+	cout << "Well, chance of match is " << std::setprecision(4) << std::fixed << user.dices[prediction] * 100 << "%\n";
 	cout << "Enter your bet for prediction (1-" << user.points << "): ";
 	cin >> bet;
 
@@ -54,7 +54,7 @@ int		 Game::TurnEnd(int result, int bet)
 	if (command == "EXIT")
 		return 0;
 	if (command == "COLOR")
-		colorChange();
+		color = !color;
 	if (command == "SKIP")
 	{
 		skip = true;
@@ -142,5 +142,3 @@ void Game::PrintHistory(std::ostream &out) const
 			out << " nothing changed\n";
 	}
 }
-
-void Game::colorChange() { color = !color; }

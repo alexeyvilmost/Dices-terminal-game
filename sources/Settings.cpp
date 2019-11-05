@@ -1,8 +1,10 @@
 #include "../includes/Menu.h"
 
+using std::cerr;
+
 bool	is(bool condition)
 {
-	if (!condition) cout << "Argument is invalid, try again" << std::endl;
+	if (!condition) cerr << "Argument is invalid, try again" << std::endl;
 	return condition;
 }
 

@@ -7,9 +7,9 @@
 #define endc 	"\033[0m"
 #define tab 	setw(6)
 #define wait 	usleep(1000000)
-#define clear	system("clear")
+#define clrscr	system("clear")
 #define max_win 10000
 
-int		Sum(std::vector<int> const &result, size_t j = 0);
+int		Sum(std::vector<int> const &result);
 bool 	countSeparator(int number, int range, int &answer);
 

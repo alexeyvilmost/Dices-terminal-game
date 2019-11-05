@@ -3,6 +3,7 @@
 //
 
 #include <unistd.h>
+#include <cmath>
 #include "../includes/Dices.h"
 #include "../includes/utility.h"
 
@@ -10,6 +11,7 @@ Dices::Dices(int range, int dices) :
 				range_(range), dices_(dices), separator(0)
 {
 	this->in = countSeparator(dices_, range_, separator);
+	calculateProb();
 }
 
 Dices::Dices(Dices const &other)
@@ -18,6 +20,7 @@ Dices::Dices(Dices const &other)
 	dices_ = other.amount();
 	history_ = other.history();
 	this->in = countSeparator(dices_, range_, separator);
+	calculateProb();
 }
 
 std::vector<int>	Dices::Throw(int prediction, bool color) const
@@ -41,7 +44,7 @@ std::vector<int>	Dices::Throw(int prediction, bool color) const
 			if (last == dices_ - 1 && k == 49)
 				break;
 			usleep(50000);
-			clear;
+			clrscr;
 		}
 	return result;
 }
@@ -74,9 +77,33 @@ int	Dices::Match(int prediction, bool skip, bool color)
 	return calculate(prediction, Sum(result));
 }
 
+void Dices::calculateProb()
+{
+	probab.clear();
+	size_t curr = 1;
+	for (size_t i = 0; i <= range_ * dices_; i++)
+	{
+		if (i < dices_)
+			probab.push_back(0.0);
+		else
+		{
+			if ((i < separator && !in) || (i <= separator && in))
+				probab.push_back((double)curr++ / std::pow(range_, amount()));
+			else
+				probab.push_back((double)curr-- / std::pow(range_, amount()));
+		}
+	}
+
+}
+
+double Dices::operator[](size_t i) const
+{
+	return probab[i];
+}
+
 const Dices::results& Dices::history() const { return history_; }
 int Dices::range() const { return range_; }
 int Dices::amount() const { return dices_; }
 
-void Dices::ChangeAmount(int amount) { dices_ = amount; }
-void Dices::ChangeRange(int range) { range_ = range; }
+void Dices::ChangeAmount(int amount) { dices_ = amount; calculateProb(); }
+void Dices::ChangeRange(int range) { range_ = range; calculateProb(); }

@@ -1,12 +1,12 @@
 NAME = Dices
 
-SRC = utility.cpp print.cpp Dices.cpp User.cpp Game.cpp main.cpp \
-      GameStarters.cpp Settings.cpp
-
 CLSO = $(CLS:.cpp=.o)
 
 GREEN = "\033[1;32m"
 ENDC = "\033[0m"
+
+SRC = utility.cpp print.cpp Dices.cpp User.cpp Game.cpp main.cpp \
+      GameStarters.cpp Settings.cpp
 
 OBJ = $(addprefix objects/,$(SRC:.cpp=.o))
 

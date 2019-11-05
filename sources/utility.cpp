@@ -7,12 +7,10 @@ bool 	countSeparator(int number, int range, int &answer)
 	return temp % 2;
 }
 
-int		Sum(std::vector<int> const &result, size_t j = 0)
+int		Sum(std::vector<int> const &result)
 {
 	int sum = 0;
-	if (!j)
-		j = result.size();
-	for (size_t i = 0; i < j; i++)
-		sum += result[i];
+	for (auto item : result)
+		sum += item;
 	return sum;
 }

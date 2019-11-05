@@ -12,23 +12,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1121836d-3e28-49e8-abc8-9cd458a40f23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/Menu.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/GameStarters.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sources/Settings.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dices" beforeDir="false" afterPath="$PROJECT_DIR$/Dices" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config" beforeDir="false" afterPath="$PROJECT_DIR$/saves/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ez" beforeDir="false" afterPath="$PROJECT_DIR$/saves/ez" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Dices.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Dices.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Menu.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Menu.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utility.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utility.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kek" beforeDir="false" afterPath="$PROJECT_DIR$/saves/kek" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/Dices.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/Dices.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/Game.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/Game.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/GameStarters.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/GameStarters.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/print.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/print.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/save.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/Dices.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Dices.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/GameStarters.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/GameStarters.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/Settings.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/Settings.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sources/print.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/print.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sources/utility.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utility.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/utility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/sources/utility.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +75,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/saves" />
       <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/sources" />
@@ -112,6 +119,7 @@
       <workItem from="1572779690076" duration="113000" />
       <workItem from="1572779804287" duration="3119000" />
       <workItem from="1572785555399" duration="33000" />
+      <workItem from="1572927641751" duration="12601000" />
     </task>
     <task id="LOCAL-00001" summary="Make issue">
       <created>1572635315999</created>
@@ -144,6 +152,35 @@
     <option name="LAST_COMMIT_MESSAGE" value="Make issue" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/sources/Dices.cpp</url>
+          <line>83</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/sources/Dices.cpp</url>
+          <line>95</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/sources/Dices.cpp</url>
+          <line>100</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/sources/Game.cpp</url>
+          <line>25</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/sources/GameStarters.cpp</url>
+          <line>4</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="result[flex]" language="ObjectiveC" />
