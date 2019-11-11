@@ -10,8 +10,8 @@ using std::cin;
 using std::cout;
 using std::string;
 
-void		QuickGame(Game qGame);
-void		CustomGame(User &user, std::istream& in = cin);
+bool		QuickGame(Game qGame);
+bool		CustomGame(User &user, std::istream& in = cin);
 Dices		DicesMenu(std::istream& in);
 void		PointsMenu(User &user, std::istream& in);
 void		AdvanceMenu(bool &skip, bool &color, std::istream& in);

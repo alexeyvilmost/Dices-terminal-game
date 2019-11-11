@@ -2,6 +2,8 @@
 
 #include "../includes/Dices.h"
 
+
+
 struct User
 {
 	int			points;

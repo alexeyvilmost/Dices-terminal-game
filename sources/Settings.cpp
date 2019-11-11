@@ -1,12 +1,8 @@
 #include "../includes/Menu.h"
 
-using std::cerr;
+#include <string>
 
-bool	is(bool condition)
-{
-	if (!condition) cerr << "Argument is invalid, try again" << std::endl;
-	return condition;
-}
+using namespace std;
 
 Dices	DicesMenu(std::istream& in)
 {
@@ -15,59 +11,59 @@ Dices	DicesMenu(std::istream& in)
 	int				d_argument;
 	while (true)
 	{
-		system("clear");
 		cout << "Select an option:\n";
 		cout << blue "AMOUNT number " endc "to change number of dices (1-7)\n";
 		cout << blue "RANGE number " endc "to change number of faces (1-20)\n";
-		cout << red "EXIT " endc "to go back and apply settings\n";
+		cout << red "EXIT " endc "to go back and apply settings" << endl;
 		in >> command;
+
 		if (command == "EXIT")
 		{
 			cout << "New dices settings: range - " << custom.range()
 				 << "; amount - " << custom.amount() << ";" << std::endl;
 			return custom;
 		}
-		if (command == "AMOUNT")
+		try 
 		{
-			in >> d_argument;
-			system("clear");
-			if (is(d_argument > 0 && d_argument < 8))
+			if (command == "AMOUNT")
 			{
+				string temp;
+				in >> temp;
+				d_argument = ParseInt(temp, 1, 7);
 				cout << "Amount of dices changed from " << custom.amount()
 					 << " to " << d_argument << std::endl;
 				custom.ChangeAmount(d_argument);
 			}
-		}
-		else if (command == "RANGE")
-		{
-			in >> d_argument;
-			system("clear");
-			if (is(d_argument > 0 && d_argument < 21))
+			else if (command == "RANGE")
 			{
+				string temp;
+				in >> temp;
+				d_argument = ParseInt(temp, 1, 20);
 				cout << "Range of dices changed from " << custom.range()
 					 << " to " << d_argument << std::endl;
 				custom.ChangeRange(d_argument);
 			}
+			else
+				cerr << "UNKNOWN COMMAND: " << command << endl;
 		}
-		else
+		catch (invalid_argument& arg)
 		{
-			system("clear");
-			cout << "UNKNOWN COMMAND: " << command << std::endl;
+			cerr << arg.what() << endl;
 		}
-		wait;
+		system("clear");
 	}
 }
 
 void	PointsMenu(User &user, std::istream& in)
 {
 	string		command;
-	int				argument;
+	string		arg_str;
+	int 		arg_val;
 	while (true)
 	{
-		system("clear");
 		cout << "Select an option:\n";
-		cout << blue "START number " endc "to change start points (1-win)\n";
-		cout << blue "WIN number " endc "to change points, required for win (start-10000)\n";
+		cout << blue "START number " endc "to change start points (1-" << user.win_condition << ")\n";
+		cout << blue "WIN number " endc "to change points, required for win (" << user.points << "-10000)\n";
 		cout << red "EXIT " endc "to go back and apply settings\n";
 		in >> command;
 		if (command == "EXIT")
@@ -77,33 +73,30 @@ void	PointsMenu(User &user, std::istream& in)
 			wait;
 			return ;
 		}
-		if (command == "START")
-		{
-			in >> argument;
-			system("clear");
-			if (is(argument > 0 && argument < user.win_condition))
+		try {
+			if (command == "START")
 			{
-				cout << "Start points changed from " << user.points << " to " << argument << std::endl;
-				user.points = argument;
+				in >> arg_str;
+				arg_val = ParseInt(arg_str, 1, user.win_condition);
+				cout << "Start points changed from " << user.points << " to " << arg_val << std::endl;
+				user.points = arg_val;
 			}
-		}
-		else if (command == "WIN")
-		{
-			in >> argument;
-			system("clear");
-			if (is(argument > user.points && argument <= max_win))
+			else if (command == "WIN")
 			{
+				in >> arg_str;
+				arg_val = ParseInt(arg_str, user.points, max_win);
 				cout << "Win points changed from " << user.win_condition
-					 << " to " << argument << std::endl;
-				user.win_condition = argument;
+					 << " to " << arg_val << std::endl;
+				user.win_condition = arg_val;
 			}
+			else
+				cerr << "UNKNOWN COMMAND: " << endl;
 		}
-		else
+		catch (invalid_argument& arg)
 		{
-			system("clear");
-			cout << "UNKNOWN COMMAND: " << std::endl;
+			cerr << arg.what() << endl;
 		}
-		wait;
+		system("clear");
 	}
 }
 

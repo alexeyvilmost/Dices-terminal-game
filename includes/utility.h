@@ -1,4 +1,9 @@
 #pragma once
+#include <vector>
+#include <sstream>
+#include <string>
+
+using namespace std;
 
 #define red 	"\033[1;31m"
 #define green 	"\033[1;32m"
@@ -10,6 +15,7 @@
 #define clrscr	system("clear")
 #define max_win 10000
 
+int 	ParseInt(string inp, int from, int to);
 int		Sum(std::vector<int> const &result);
 bool 	countSeparator(int number, int range, int &answer);
 

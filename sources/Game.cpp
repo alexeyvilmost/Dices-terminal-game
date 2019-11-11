@@ -1,34 +1,36 @@
 #include <unistd.h>
 #include <iomanip>
+#include <sstream>
 #include "../includes/Game.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::setw;
-using std::string;
-using std::to_string;
+using namespace std;
 
 void	Game::TurnStart(int &bet, int &prediction)
 {
-	system("clear");
+	clrscr;
 	int from = user.dices.amount(),
 		to = user.dices.range() * user.dices.amount();
+	string temp;
 
 	cout << "TURN #" << history_.size() + 1 << endl;
 	cout << "Your current score: " << user.points << endl;
-	cout << "Enter your prediction (" << from << "-" << to << "): ";
-	cin >> prediction;
-
-	if (prediction < from || prediction > to)
+	cout << "Enter your prediction (" << from << "-" << to << "): "; 
+	
+	try 
+	{
+		cin >> temp; 
+		prediction = ParseInt(temp, from, to);
+		cout << "Well, chance of match is " << std::setprecision(4) << std::fixed << user.dices[prediction] * 100 << "%\n";
+		cout << "Enter your bet for prediction (1-" << user.points << "): ";
+		
+		cin >> temp;
+		bet = ParseInt(temp, 1, user.points);
+	}
+	catch (invalid_argument& arg)
+	{
+		cerr << arg.what() << endl;
 		return TurnStart(bet, prediction);
-
-	cout << "Well, chance of match is " << std::setprecision(4) << std::fixed << user.dices[prediction] * 100 << "%\n";
-	cout << "Enter your bet for prediction (1-" << user.points << "): ";
-	cin >> bet;
-
-	if (bet < 0 || bet > user.points)
-		return TurnStart(bet, prediction);
+	}
 }
 
 int		 Game::TurnEnd(int result, int bet)
@@ -66,6 +68,7 @@ int		 Game::TurnEnd(int result, int bet)
 		cout << "Animation will be enabled\n";
 	}
 	wait;
+	system("clear");
 	return 1;
 }
 

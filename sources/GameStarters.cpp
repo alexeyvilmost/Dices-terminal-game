@@ -1,12 +1,17 @@
 #include "../includes/Menu.h"
 
-void		QuickGame(Game qGame)
+bool		QuickGame(Game qGame)
 {
+	system("clear");
 	while (qGame.turn()); // All interaction game happens in this line
 
 	string command;
-	cout << "If you want to see game history, type " << qGame.cm("PRINT") << "\n";
-	cout << "It you want to save game history in file, type " << qGame.cm("FILE filename") << "\n";
+	system("clear");
+	cout << "Your history:\n"; 
+	qGame.PrintHistory(cout);
+	cout << "It you want to save game history in file, type " 
+		<< qGame.cm("FILE filename") << "\n";
+	cout << "if you want to restart game, type " << qGame.cm("RESTART") << "\n";
 	cout << "If you want to quit, type anything else\n";
 	cin >> command;
 	if (command == "FILE")
@@ -21,25 +26,23 @@ void		QuickGame(Game qGame)
 			cout << "History was recorded in " << temp << "\n";
 		}
 		else
-		{
-			cout << "Error: can't reach file, printing on screen" << "\n";
-			command = "PRINT";
-		}
+			cerr << "Error: can't reach file" << "\n";
 	}
-	if (command == "PRINT")
-		qGame.PrintHistory(cout);
+	else if (command == "RESTART")
+		return true;
+	return false;
 }
 
-void	CustomGame(User &user, std::istream& in)
+bool	CustomGame(User &user, std::istream& in)
 {
-	string		command;
+	string			command;
 	bool			skip = false;
 	bool			color = true;
 	while (true)
 	{
 		system("clear");
 		if (!command.empty())
-			cout << "UNKNOWN COMMAND: " << command << std::endl;
+			cerr << "UNKNOWN COMMAND: " << command << std::endl;
 		cout << "Welcome to customise menu, select an option\n";
 		cout << blue "DICES" endc " if you want to change dices settings\n";
 		cout << blue "POINTS" endc " if you want to change start points or win condition\n";
@@ -63,11 +66,11 @@ void	CustomGame(User &user, std::istream& in)
 			if (out)
 				SaveInter(out, user, skip, color);
 			else
-				cout << "Can't reach file " << filename << " \n";
+				cerr << "Can't reach file " << filename << " \n";
 		}
 	}
 
 	Game	Custom(user, skip, color);
 	cout << "Custom game started, good luck\n";
-	QuickGame(Custom);
+	return QuickGame(Custom);
 }
