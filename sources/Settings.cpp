@@ -11,9 +11,12 @@ Dices	DicesMenu(std::istream& in)
 	int				d_argument;
 	while (true)
 	{
+		system("clear");
 		cout << "Select an option:\n";
 		cout << blue "AMOUNT number " endc "to change number of dices (1-7)\n";
 		cout << blue "RANGE number " endc "to change number of faces (1-20)\n";
+		cout << blue "NUMBER OF DICES - " << custom.amount() << "\n";
+		cout << blue "RANGE OF DICES - " << custom.range() << "\n\n";
 		cout << red "EXIT " endc "to go back and apply settings" << endl;
 		in >> command;
 
@@ -49,8 +52,8 @@ Dices	DicesMenu(std::istream& in)
 		catch (invalid_argument& arg)
 		{
 			cerr << arg.what() << endl;
+			wait;
 		}
-		system("clear");
 	}
 }
 
@@ -61,32 +64,28 @@ void	PointsMenu(User &user, std::istream& in)
 	int 		arg_val;
 	while (true)
 	{
+		system("clear");
 		cout << "Select an option:\n";
 		cout << blue "START number " endc "to change start points (1-" << user.win_condition << ")\n";
 		cout << blue "WIN number " endc "to change points, required for win (" << user.points << "-10000)\n";
+		cout << blue "START POINTS - " << user.points << endc << "\n";
+		cout << blue "WIN POINTS - " << user.win_condition << endc << "\n\n"; 
 		cout << red "EXIT " endc "to go back and apply settings\n";
 		in >> command;
 		if (command == "EXIT")
-		{
-			cout << "New points settings: start - " << user.points
-				 << "; win - " << user.win_condition << ";" << std::endl;
-			wait;
 			return ;
-		}
-		try {
+		try
+		{
 			if (command == "START")
 			{
 				in >> arg_str;
 				arg_val = ParseInt(arg_str, 1, user.win_condition);
-				cout << "Start points changed from " << user.points << " to " << arg_val << std::endl;
 				user.points = arg_val;
 			}
 			else if (command == "WIN")
 			{
 				in >> arg_str;
-				arg_val = ParseInt(arg_str, user.points, max_win);
-				cout << "Win points changed from " << user.win_condition
-					 << " to " << arg_val << std::endl;
+				arg_val = ParseInt(arg_str, user.points + 1, max_win);
 				user.win_condition = arg_val;
 			}
 			else
@@ -95,8 +94,8 @@ void	PointsMenu(User &user, std::istream& in)
 		catch (invalid_argument& arg)
 		{
 			cerr << arg.what() << endl;
+			wait;
 		}
-		system("clear");
 	}
 }
 

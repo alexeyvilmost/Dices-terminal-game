@@ -41,8 +41,6 @@ bool	CustomGame(User &user, std::istream& in)
 	while (true)
 	{
 		system("clear");
-		if (!command.empty())
-			cerr << "UNKNOWN COMMAND: " << command << std::endl;
 		cout << "Welcome to customise menu, select an option\n";
 		cout << blue "DICES" endc " if you want to change dices settings\n";
 		cout << blue "POINTS" endc " if you want to change start points or win condition\n";
@@ -52,11 +50,11 @@ bool	CustomGame(User &user, std::istream& in)
 		in >> command;
 		if (command == "START")
 			break;
-		if (command == "DICES")
+		else if (command == "DICES")
 			user.dices = DicesMenu(in);
-		if (command == "POINTS")
+		else if (command == "POINTS")
 			PointsMenu(user, in);
-		if (command == "ADVANCE")
+		else if (command == "ADVANCE")
 			AdvanceMenu(skip, color, in);
 		else if (command == "SAVE")
 		{
@@ -66,7 +64,15 @@ bool	CustomGame(User &user, std::istream& in)
 			if (out)
 				SaveInter(out, user, skip, color);
 			else
+			{
 				cerr << "Can't reach file " << filename << " \n";
+				wait;
+			}
+		}
+		else
+		{
+			cerr << "UNKNOWN COMMAND: " << command << std::endl;
+			wait;
 		}
 	}
 
